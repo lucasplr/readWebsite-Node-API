@@ -23,4 +23,3 @@ module.exports = {
       dialect: "postgres"
     }
   }
-//teste
