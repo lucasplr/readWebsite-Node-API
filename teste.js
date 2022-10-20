@@ -1,5 +1,5 @@
 require('dotenv').config()
 
-const test = process.env.DB_USER
+const password = process.env.password
 
-console.log(test)
+console.log(password)
