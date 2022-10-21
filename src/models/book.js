@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.Chapter, {
         foreignKey: 'bookId',
         through: 'bookChapters',
-        as: 'book'
+        as: 'bookchapters'
       })
       this.belongsToMany(models.Author, {
         foreignKey: 'bookId',

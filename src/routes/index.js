@@ -10,6 +10,8 @@ const ChaptersController = require('../controllers/ChaptersController')
 
 const AuthorBooksController = require('../controllers/AuthorBooksController')
 
+const BookChaptersController = require('../controllers/BookChaptersController')
+
 //books
 routes.get('/books', BooksController.index)
 routes.post('/books', BooksController.create)
@@ -29,6 +31,11 @@ routes.put('/chapters/:id', ChaptersController.update)
 routes.delete('/chapters/:id', ChaptersController.delete)
 
 //AuthorBooks
-routes.get('/authorbooks', AuthorBooksController.createAuthorBook)
+routes.post('/authorbooks', AuthorBooksController.createAuthorBook)
+routes.delete('/authorbooks', AuthorBooksController.removeAuthorBook)
+
+//BookChapters
+routes.post('/bookchapters', BookChaptersController.createBookChapter)
+routes.delete('/bookchapters', BookChaptersController.removeBookChapter)
 
 module.exports = routes
