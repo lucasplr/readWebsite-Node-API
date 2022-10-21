@@ -6,7 +6,11 @@ module.exports = {
     async index(req,res){
 
         try{    
-            const books = await database.Book.findAll()
+            const books = await database.Book.findAll({
+                include: [
+                    {association: 'bookchapters', attributes: ['name']},
+                ]
+            })
             res.status(200).json(books)
         }catch(err){
             res.status(404).json({err:err.message})
