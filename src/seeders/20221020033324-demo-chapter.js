@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.bulkInsert('chapters', [
       {
         name: 'chapter 1: Crimson',
-        text: `[Pain!
+        content: `[Pain!
 
           It hurts!
           
@@ -143,13 +143,12 @@ module.exports = {
           With a veil-like blush of the moonlight, he titled his head and looked at the reflection of his forehead.
           
           The mirror clearly reflected an ugly wound entrenched around his temple. The edges of the wound were burnt, with bloodstains all around it. Through the wound, Zhou could see the grey matter of his own brains slowly trembling.`,
-        bookId: 9,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'c1 + prologue',
-        text: `
+        content: `
         The knight in full plate armor stood before the girl and her little sister, his sword raised high.
         
         
@@ -1674,7 +1673,6 @@ module.exports = {
         
         Momonga told himself that he had to leave this at the back of his mind. After the important things were taken care of, he could agonize over it later.
         `,
-        bookId: 10,
         createdAt: new Date(),
         updatedAt: new Date()
       }

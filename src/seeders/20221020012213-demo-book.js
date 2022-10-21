@@ -6,14 +6,12 @@ module.exports = {
     await queryInterface.bulkInsert('books', [
       {
         name: 'Overlord',
-        authorId: 7,
         imgCover: 'https://cdn.novelupdates.com/images/2017/11/overlord_ln.jpeg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Lord of the Mysteries',
-        authorId: 8,
         imgCover: 'https://cdn.novelupdates.com/images/2018/11/Lord-of-the-Mysteries.jpeg',
         createdAt: new Date(),
         updatedAt: new Date()
