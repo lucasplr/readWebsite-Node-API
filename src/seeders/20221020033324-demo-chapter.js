@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Chapters', [
+    await queryInterface.bulkInsert('chapters', [
       {
         name: 'chapter 1: Crimson',
         text: `[Pain!
@@ -143,6 +143,7 @@ module.exports = {
           With a veil-like blush of the moonlight, he titled his head and looked at the reflection of his forehead.
           
           The mirror clearly reflected an ugly wound entrenched around his temple. The edges of the wound were burnt, with bloodstains all around it. Through the wound, Zhou could see the grey matter of his own brains slowly trembling.`,
+        bookId: 9,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -1673,6 +1674,7 @@ module.exports = {
         
         Momonga told himself that he had to leave this at the back of his mind. After the important things were taken care of, he could agonize over it later.
         `,
+        bookId: 10,
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -1689,6 +1691,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('chapters')
     /**
      * Add commands to revert seed here.
      *

@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      this.belongsToMany(models.Book, {
+        foreignKey: 'authorId',
+        through: 'authorBooks',
+        as: 'author'
+      })
       // define association here
     }
   }
@@ -18,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Author',
+    tableName: 'authors'
   });
   return Author;
 };

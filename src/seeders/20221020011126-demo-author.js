@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Authors', [
+    await queryInterface.bulkInsert('authors', [
       {
         name: 'Maruyama Kugane',
         createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Authors')
+    await queryInterface.bulkDelete('authors')
     /**
      * Add commands to revert seed here.
      *
