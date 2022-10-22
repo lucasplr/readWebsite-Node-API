@@ -1,7 +1,6 @@
 const User = require('../models/user')
 
 const database = require('../models')
-const { post } = require('../routes')
 
 module.exports = {
 

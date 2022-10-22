@@ -18,6 +18,10 @@ const RoleController = require('../controllers/RoleController')
 
 const PermissionController = require('../controllers/PermissionController')
 
+const UserAccessControlController = require('../controllers/UserAcessControlController')
+
+const RolePermissionController = require('../controllers/RolePermissionController')
+
 //books
 routes.get('/books', BooksController.index)
 routes.post('/books', BooksController.create)
@@ -65,5 +69,13 @@ routes.post('/permissions', PermissionController.create)
 routes.put('/permissions/:id', PermissionController.update)
 routes.delete('/permissions/:id', PermissionController.delete)
 
+
+//accesscontroll
+routes.get('/createaccesscontrol', UserAccessControlController.createUserAcessControl)
+routes.get('/removeaccesscontrol', UserAccessControlController.removeUserAcessControl)
+
+//rolePermissions
+routes.get('/createrolepermission', RolePermissionController.createRolePermission)
+routes.get('/removerolepermission', RolePermissionController.removeRolePermission)
 
 module.exports = routes
