@@ -22,6 +22,8 @@ const UserAccessControlController = require('../controllers/UserAcessControlCont
 
 const RolePermissionController = require('../controllers/RolePermissionController')
 
+const userAuth = require('../middlewares/userAuth')
+
 //books
 routes.get('/books', BooksController.index)
 routes.post('/books', BooksController.create)
@@ -29,7 +31,7 @@ routes.put('/books/:id', BooksController.update)
 routes.delete('/books/:id', BooksController.delete)
 
 //author
-routes.get('/authors', AuthorsController.index)
+routes.get('/authors', userAuth, AuthorsController.index)
 routes.post('/authors', AuthorsController.create)
 routes.put('/authors/:id', AuthorsController.update)
 routes.delete('/authors/:id', AuthorsController.delete)

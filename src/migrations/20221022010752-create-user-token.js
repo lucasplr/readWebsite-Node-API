@@ -12,6 +12,13 @@ module.exports = {
       refreshToken: {
         type: Sequelize.STRING
       },
+      userid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {model: 'users', key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       expiresDate: {
         type: Sequelize.DATE
       },
