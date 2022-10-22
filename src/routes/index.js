@@ -55,6 +55,8 @@ routes.post('/users', UserController.create)
 routes.put('/users/:id', UserController.update)
 routes.delete('/users/:id', UserController.delete)
 
+routes.post('/login', UserController.login)
+
 //roles
 routes.get('/roles', RoleController.index)
 routes.get('/roles/:id', RoleController.getRole)
