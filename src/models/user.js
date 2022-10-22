@@ -14,11 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+    validate: {
+      isEmail: {
+        args: true,
+        msg: "E-mail inválido!"
+      }
+    }},
     password: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
+    tableName: 'users'
   });
   return User;
 };
