@@ -6,6 +6,10 @@ const bcrypt = require('bcrypt')
 
 const generateToken = require('../services/generateToken')
 
+const generateRefreshToken = require('../services/generateRefreshToken')
+
+const checkUser = require('../services/userCheck')
+
 module.exports = {
 
     async index(req,res){
@@ -55,9 +59,14 @@ module.exports = {
                     res.status(404).json("Iconrrect Password")
                 }else{
                     
+                    const userCheck = await checkUser.checkUser(findUser)
+                    /*
                     const token = await generateToken.generateToken(findUser)
 
-                    res.status(200).json(token)
+                    const refreshToken = await generateRefreshToken.generateRefreshToken(findUser.id)
+                    */
+                    //{token: token, refreshToken: refreshToken}
+                    res.status(200).json(userCheck)
                 }
             }
         }catch(err){

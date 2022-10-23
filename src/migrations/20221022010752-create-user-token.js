@@ -12,7 +12,7 @@ module.exports = {
       refreshToken: {
         type: Sequelize.STRING
       },
-      userid: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: 'users', key: 'id'},

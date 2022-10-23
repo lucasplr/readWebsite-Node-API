@@ -4,6 +4,8 @@ const dayjs = require('dayjs')
 
 const database = require('../models')
 
+const userToken = require('../models/usertoken')
+
 module.exports = {
 
     async generateRefreshToken(userId){
@@ -16,9 +18,7 @@ module.exports = {
             expiresIn: process.env.expires_in_refresh_token
         })
 
-
         const refresh_token_expires_date = dayjs().add(process.env.expires_in_refresh_token_days, 'days').toDate()
-        console.log(refresh_token_expires_date)
 
         try{
 
@@ -27,14 +27,14 @@ module.exports = {
                     userId: userId
                 }
             })
-
+            
             const refreshToken = await database.userToken.create({
                 userId: userId,
                 refreshToken: refresh_token,
                 expiresDate: refresh_token_expires_date
             })
 
-            return refreshToken
+            return refreshToken['refreshToken']
         }catch(err){
             return err.message
         }
