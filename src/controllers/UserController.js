@@ -66,7 +66,7 @@ module.exports = {
                     const refreshToken = await generateRefreshToken.generateRefreshToken(findUser.id)
                     */
                     //{token: token, refreshToken: refreshToken}
-                    res.status(200).json(userCheck)
+                    res.status(200).json({token: userCheck.token, refresh_token: userCheck.refresh_token})
                 }
             }
         }catch(err){

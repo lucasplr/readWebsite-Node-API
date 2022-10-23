@@ -34,7 +34,7 @@ module.exports = {
                 expiresDate: refresh_token_expires_date
             })
 
-            return refreshToken['refreshToken']
+            return refreshToken
         }catch(err){
             return err.message
         }
