@@ -1,13 +1,23 @@
 const Author = require('../models/author')
 const database = require('../models')
+const author = require('../models/author')
 
 module.exports = {
 
     async index(req,res){
 
-        try{    
-            const authors = await database.Author.findAll()
-            res.status(200).json(authors)
+        try{
+            if(!req.isAuthenticated){
+
+                const authors = await database.Author.findAll({
+                    attributes: ['name']
+                })
+
+                res.status(200).json(authors)
+            }else{
+                const authors = await database.Author.findAll()
+                res.status(200).json(authors)
+            }    
         }catch(err){
             res.status(404).json({err:err.message})
         }

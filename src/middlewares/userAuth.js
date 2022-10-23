@@ -14,6 +14,9 @@ module.exports = async function(req,res,next){
 
         try{
             const verify = await jwt.verify(token, process.env.secret_token)
+            req.isAuthenticated = true
+            const decode  =await jwt.decode(token)
+            req.userId = decode.id
 
             next()
         }catch(err){

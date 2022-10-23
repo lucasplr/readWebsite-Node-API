@@ -24,8 +24,13 @@ const RolePermissionController = require('../controllers/RolePermissionControlle
 
 const userAuth = require('../middlewares/userAuth')
 
+const tryAuthenticate = require('../middlewares/tryAuthenticate')
+
 const refreshToken = require('../controllers/RefreshTokenController')
+
 const RefreshTokenController = require('../controllers/RefreshTokenController')
+
+const permissionsAuth = require('../middlewares/permissionsAuth')
 
 //books
 routes.get('/books', BooksController.index)
@@ -34,7 +39,8 @@ routes.put('/books/:id', BooksController.update)
 routes.delete('/books/:id', BooksController.delete)
 
 //author
-routes.get('/authors', userAuth, AuthorsController.index)
+routes.get('/authors', [tryAuthenticate, permissionsAuth.is('editor')], 
+AuthorsController.index)
 routes.post('/authors', AuthorsController.create)
 routes.put('/authors/:id', AuthorsController.update)
 routes.delete('/authors/:id', AuthorsController.delete)
@@ -78,12 +84,12 @@ routes.delete('/permissions/:id', PermissionController.delete)
 
 
 //accesscontroll
-routes.get('/createaccesscontrol', UserAccessControlController.createUserAcessControl)
-routes.get('/removeaccesscontrol', UserAccessControlController.removeUserAcessControl)
+routes.post('/createaccesscontrol', UserAccessControlController.createUserAcessControl)
+routes.delete('/removeaccesscontrol', UserAccessControlController.removeUserAcessControl)
 
 //rolePermissions
-routes.get('/createrolepermission', RolePermissionController.createRolePermission)
-routes.get('/removerolepermission', RolePermissionController.removeRolePermission)
+routes.post('/createrolepermission', RolePermissionController.createRolePermission)
+routes.delete('/removerolepermission', RolePermissionController.removeRolePermission)
 
 routes.get('/refresh', RefreshTokenController.getRefreshToken)
 
