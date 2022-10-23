@@ -24,6 +24,9 @@ const RolePermissionController = require('../controllers/RolePermissionControlle
 
 const userAuth = require('../middlewares/userAuth')
 
+const refreshToken = require('../controllers/RefreshTokenController')
+const RefreshTokenController = require('../controllers/RefreshTokenController')
+
 //books
 routes.get('/books', BooksController.index)
 routes.post('/books', BooksController.create)
@@ -81,5 +84,7 @@ routes.get('/removeaccesscontrol', UserAccessControlController.removeUserAcessCo
 //rolePermissions
 routes.get('/createrolepermission', RolePermissionController.createRolePermission)
 routes.get('/removerolepermission', RolePermissionController.removeRolePermission)
+
+routes.get('/refresh', RefreshTokenController.getRefreshToken)
 
 module.exports = routes

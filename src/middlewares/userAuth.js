@@ -14,7 +14,7 @@ module.exports = async function(req,res,next){
 
         try{
             const verify = await jwt.verify(token, process.env.secret_token)
-            console.log(verify)
+
             next()
         }catch(err){
             return res.status(500).json({err: err.message})
